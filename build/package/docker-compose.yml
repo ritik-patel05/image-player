@@ -1,0 +1,17 @@
+services:
+  localstack:
+      image: localstack/localstack:latest
+      environment:
+        - SERVICES=s3,dynamodb,sqs
+        - DEBUG=1
+      ports:
+        - "4566:4566"
+      volumes:
+        - "./init-aws.sh:/etc/localstack/init/ready.d/init-aws.sh"  # ready hook
+        - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
+        - "/var/run/docker.sock:/var/run/docker.sock"
+  redis:
+    image: redis:latest
+    container_name: redis-local
+    ports:
+      - "6378:6379"  # Expose the Redis port

@@ -1,0 +1,31 @@
+linters:
+  enable:
+    - asasalint
+    - bidichk
+    - copyloopvar
+    - decorder
+    - durationcheck
+    - err113
+    - errchkjson
+    - errname
+    - errorlint
+    - exhaustive
+    - gci
+    - gocritic
+    - godot
+    - gofmt
+    - goheader
+    - goimports
+    - gosec
+    - gosmopolitan
+    - loggercheck
+    - mirror
+    - misspell
+    - nolintlint
+    - protogetter
+    - reassign
+    - spancheck
+    - sqlclosecheck
+    - tagalign
+    - testifylint
+    - whitespace

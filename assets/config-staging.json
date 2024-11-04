@@ -1,0 +1,10 @@
+{
+	"redis": {
+		"imageRedis": {
+			"host": [
+				"localhost:6379"
+			],
+			"isClustered": false
+		}
+	}
+}
