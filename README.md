@@ -1,5 +1,17 @@
 # Image-Player
 
+## Architecture Diagram
+
+![Arch Diagram](docs/images/Screenshot%202024-11-04%20at%2012.56.52 PM.png)
+
+Currently, I have not implmented Image Analyis Job - which uses reading messages from SQS queue after an image in uploaded or deleted from the S3 bucket of images.
+
+Also, if in future client wants to upload image file. We will send a preSignedURL for upload to the bucket directly by client from upload API. Currently upload API reads data sent in the API.
+
+And once the image analysis job has read the message - it will update the image metadata DB with the additional information.
+
+---
+
 ## How to start the service Locally
 1. [Run the docker compose command by following steps mentioned here](docs/development/setup-aws-locally.md#prerequisites)
 2. Start the golang service using the following commands in root directory.
@@ -10,8 +22,10 @@
 
 A platform to manage images with features for uploading, retrieving, updating, and deleting images. This API provides endpoints for handling image metadata and integrating with AWS S3 for secure storage.
 
-## API Documentation
+---
 
+## API Documentation
+Use this postman collection to call API endpoints locally.
 **Postman Collection** - https://drive.google.com/file/d/14R_c55S5c4g4hRACAsJefw-B_w1vVBjN/view?usp=drive_link 
 
 Here's a detailed contract for each API endpoint:
@@ -195,12 +209,4 @@ Here's a detailed contract for each API endpoint:
 
 ---
 
-## Architecture Diagram
 
-![Arch Diagram](docs/images/Screenshot%202024-11-04%20at%2012.56.52 PM.png)
-
-Currently, I have not implmented Image Analyis Job - which uses reading messages from SQS queue after an image in uploaded or deleted from the S3 bucket of images.
-
-Also, if in future client wants to upload image file. We will send a preSignedURL for upload to the bucket directly by client from upload API. Currently upload API reads data sent in the API.
-
-And once the image analysis job has read the message - it will update the image metadata DB with the additional information.
